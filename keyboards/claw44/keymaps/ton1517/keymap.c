@@ -113,7 +113,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             ctrl_pressed = record->event.pressed;
             return true;
 
-        // Ctrl-Minus を押すと Ctrl-[ (vimでのesc) になるようにする
+        // Ctrl-Minus を押すとESCになるようにする
         case KC_MINUS:
             if (!ctrl_pressed) {
                 return true;
@@ -121,9 +121,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             if (record->event.pressed) {
                 unregister_code(KC_MINUS);
-                register_code(KC_LBRACKET);
+                register_code(KC_ESC);
             } else {
-                unregister_code(KC_LBRACKET);
+                unregister_code(KC_ESC);
                 if (ctrl_pressed) {
                     register_code(KC_LCTRL);
                 }
