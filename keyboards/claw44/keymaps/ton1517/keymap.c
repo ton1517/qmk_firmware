@@ -120,6 +120,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
 
             if (record->event.pressed) {
+                unregister_code(KC_LCTRL);
                 unregister_code(KC_MINUS);
                 register_code(KC_ESC);
             } else {
